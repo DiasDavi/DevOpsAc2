@@ -27,13 +27,4 @@ pipeline {
         bat 'curl http://localhost:9090'
       }
     }
-    stage('Docker Push') {
-    	agent any
-      steps {
-      	withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
-        	sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-          sh 'docker push ddias2/ac2devops:latest'
-        }
-      }
-  }  
 }
