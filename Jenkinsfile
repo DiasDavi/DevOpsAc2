@@ -32,7 +32,7 @@ pipeline {
       steps {
       	withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
         	sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-          sh 'docker push dad312420/ac2devops:latest'
+          sh 'docker push ddias2/ac2devops:latest'
         }
       }
   }  
